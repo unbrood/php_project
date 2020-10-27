@@ -30,7 +30,7 @@ class DB {
 			
 			//The value of the PDO::ATTR_PERSISTENT option is converted to boolean 
 			//(enable/disable persistent connections), unless it is a non-numeric string, in which case it allows to use multiple persistent connection pools.
-
+			// Remove DB PW if live DB
 			self::$con = new PDO('mysql:charset=utf8mb4;host=localhost;port=3306;dbname=login_system', 'root', '1GHsda5123asdV?to32' );
 			self::$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			self::$con->setAttribute(PDO::ATTR_PERSISTENT, false);
@@ -38,7 +38,7 @@ class DB {
 		} catch (PDOException $e) {
 			//var_dump can output different expressions (https://www.php.net/manual/en/function.var-dump.php)
 			//in this case writes the exception directly on the webpage
-			//var_dump($e);
+			var_dump($e);
 			echo "Could not connect to database";
 			exit;
 		}
@@ -52,4 +52,7 @@ class DB {
 	}
 }
 
+// php -m | grep pdo
+// apt-get install php-mysql
+// restart!
 ?>

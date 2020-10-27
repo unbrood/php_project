@@ -1,4 +1,4 @@
-<?php 
+<?php
 	//Allows the index.php to use the config file defined in the *inc* folder
 	define('__CONFIG__', true);
 	//Sets the config.php as required; Will try to include once and then stay loaded
@@ -36,6 +36,8 @@
 			<a href="/register.php">Register</a>
 		</p>
 	</div>
-	<?php require_once "inc/footer.php"?>
+	<?php 
+		require_once "inc/footer.php";
+	?>
 	</body>
 </html>	

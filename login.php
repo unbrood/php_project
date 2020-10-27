@@ -32,18 +32,20 @@
 				<h2>Login</h2>
 
     			<div class="uk-margin">
-        			<label class="uk-form-label" for="form-stacked-text">Email</label>
+        			<label class="uk-form-label" for="form-stacked-text">email</label>
         			<div class="uk-form-controls">
-            			<input class="uk-input" id="form-stacked-text" type="Email" required="required" placeholder="email@email.com">
+            			<input class="uk-input" id="form-stacked-text" type="email" required="required" placeholder="email@email.com">
         			</div>
     			</div>
     
 			    <div class="uk-margin">
-			        <label class="uk-form-label" for="form-stacked-text">Password</label>
+			        <label class="uk-form-label" for="form-stacked-text">password</label>
 			        <div class="uk-form-controls">
-			            <input class="uk-input" id="form-stacked-text" type="Password" required="required" placeholder="Your password">
+			            <input class="uk-input" id="form-stacked-text" type="password" required="required" placeholder="Your password">
 			        </div>
 			    </div>
+
+				<div class="uk-margin uk-alert uk-alert-danger js-error" style='display: none;'></div>
 
 			    <div class="uk-margin">
 			        <button class="button-uk-button uk-button-default" type="submit">Login</button>
@@ -52,6 +54,8 @@
 			</form>
 		</div>
 	</div>
-	<?php require_once "inc/footer.php"?>
+		<?php 
+			require_once "inc/footer.php";
+		?>
 	</body>
 </html>	

@@ -6,7 +6,7 @@
 
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
         // Always returns JSON format
-        header('Content-Type: application/json');
+        //header('Content-Type: application/json');
 
         $return = [];
         
@@ -27,7 +27,6 @@
             $return['error'] = "You already have an account.";
             $return['is_logged_in'] = false; 
         } else {
-            // User does not exist; automatically add them (!!Bad should not be done normally!!)
 
             $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
@@ -47,9 +46,9 @@
         // Verify user can be added AND is added
         
         // Return the information back to JavaScript to redirect user
-        $return['redirect'] = '/dashboard.php';
+        // $return['redirect'] = '/dashboard.php';        
 
-        // echo json_encode($array, JSON_PRETTY_PRINT); exit;
+        echo json_encode($array, JSON_PRETTY_PRINT); exit;
     } else {
         // Stop script and redirect user
         exit('Invalid URL');

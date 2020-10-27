@@ -6,12 +6,13 @@
 
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
         // Always returns JSON format
-        //header('Content-Type: application/json');
+        // header('Content-Type: application/json');
 
         $return = [];
         
         // Uses filter function to sanitize DB query
         $email = Filter::String( $_POST['email'] );
+        $password = $_POST['password'];
 
         // Get the DB connection
         $con = DB::getConnection();
@@ -46,12 +47,12 @@
         }
      
         // Return the information back to JavaScript to redirect user
-        //$return['redirect'] = '/dashboard.php';
+        // $return['redirect'] = '/dashboard.php';
 
         echo json_encode($array, JSON_PRETTY_PRINT); exit;
     } else {
         // Stop script and redirect user
         exit('Invalid URL');
     }
- 
+
 ?>
