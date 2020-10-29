@@ -4,6 +4,8 @@
 	//Sets the config.php as required; Will try to include once and then stay loaded
 	require_once "inc/config.php"; 
 
+	// ForceDashboard();
+
 ?>
 <!DOCTYPE = html>
 <html lang="en">

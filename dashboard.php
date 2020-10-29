@@ -4,15 +4,9 @@
 	//Sets the config.php as required; Will try to include once and then stay loaded
 	require_once "inc/config.php"; 
 
-	if(isset($_SESSION['user_id'])){
-		// if the user is allowed here
+	ForceLogin();	
 
-	} else {
-		// if the user is not allowed here
-		header("Location: /login.php"); exit;
-	}
 	echo $_SESSION['user_id'] . 'is your user id';
-	exit;
 ?>
 <!DOCTYPE = html>
 <html lang="en">
@@ -36,6 +30,8 @@
 	<body>
 	<div class="uk-section uk-container">
 		This is the dashboard
+
+		You are signed in as user: <?php echo $_SESSION['user_id']; ?>
 	</div>
 	<?php 
 		require_once "inc/footer.php";

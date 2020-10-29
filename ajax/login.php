@@ -14,8 +14,8 @@
         $email = Filter::String( $_POST['email'] );
         $password = $_POST['password'];
 
-        // Get the DB connection
-        $con = DB::getConnection();
+        // Get the DB connection (moved to config file)
+        // $con = DB::getConnection();
 
         // Verify user does not exist
         $findUser = $con->prepare("SELECT user_id, password FROM users WHERE email = LOWER(:email) LIMIT 1");
@@ -31,8 +31,9 @@
             $hash = (string) $User['password'];
 
             if(password_verify($password, $hash)){
-                // User is signed in
-                $return['redirect'] = '../dashboard.php';
+                // User is signed in (redirect doesn't seem to be working)
+                // $return['redirect'] = 'dashboard.php';
+                header("Location: ../dashboard.php");
 
                 $_SESSION['user_id'] = $user_id;
             } else {
@@ -47,9 +48,9 @@
         }
      
         // Return the information back to JavaScript to redirect user
-        // $return['redirect'] = '/dashboard.php';
+        $return['redirect'] = 'dashboard.php';
 
-        echo json_encode($array, JSON_PRETTY_PRINT); exit;
+        // echo json_encode($array, JSON_PRETTY_PRINT); exit;
     } else {
         // Stop script and redirect user
         exit('Invalid URL');

@@ -13,8 +13,8 @@
         // Uses filter function to sanitize DB query
         $email = Filter::String( $_POST['email'] );
 
-        // Get the DB connection
-        $con = DB::getConnection();
+        // Get the DB connection (*move to config file)
+        // $con = DB::getConnection();
 
         // Verify user does not exist
         $findUser = $con->prepare("SELECT user_id FROM users WHERE email = LOWER(:email) LIMIT 1");
