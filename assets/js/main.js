@@ -126,3 +126,65 @@ $(document)
 
     return false;
 })
+
+// // Looks for the js-dashboard form and only loads that
+// .on("submit", "form.js-dashboard", function(event) {
+//     // Prevents default behaviour of the browser
+//     event.preventDefault()
+
+//     var _form = $(this);
+//     var _error = $(".js-error", _form);
+    
+//     // Collects data from email and password form and saves it to data variable
+//     var dataObj = {
+//         textfield: $("input[type='textarea']", _form).val(),
+//     };
+
+//     // validates length of email address is bigger 6; in case not, show error text
+//     if(dataObj.textfield.length < 10) {
+//         _error
+//             .text("Please enter at least 10 characters")
+//             .show();
+//         // No code below return false is executed in case of error
+//         return false;
+//     } else if (dataObj.textfield.length > 1000){
+//         _error
+//             .text("Comment can't exceed 1000 characters.")
+//             .show();
+//         return false;
+//     }
+
+//     // If code reaches this point can start ajax process
+//     _error.hide();
+//     $.ajax({
+//         type: 'POST',
+//         url: 'ajax/dashboard.php',
+//         data: dataObj,
+//         dataType: 'json',
+//         async: true,
+//     })
+//     .done(function ajaxDone(data){
+//         // The value for data
+//         console.log(data);
+//         if(data.redirect !== undefined){
+//             // window.location = data.redirect;
+//         } else if(data.error !== undefined){
+//             _error
+//                 .html(data.error)
+//                 .show();
+//         }
+//     })
+//     .fail(function ajaxFailed(e){
+//         // When failing
+//         console.log(e);
+//     })
+    
+//     .always(function ajaxAlwaysDone(data){
+//         // Always executes this
+//         console.log('worked');
+//     })
+//     // outputs the sent data to developer console (remove before deploy!)
+//     // console.log(data);
+
+//     return false;
+// })
