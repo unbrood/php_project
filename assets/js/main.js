@@ -42,7 +42,7 @@ $(document)
         // The value for data
         console.log(data);
         if(data.redirect !== undefined){
-            // window.location = data.redirect;
+            window.location = data.redirect;
         } else if(data.error !== undefined){
             _error
                 .text(data.error)
@@ -104,8 +104,9 @@ $(document)
     .done(function ajaxDone(data){
         // The value for data
         console.log(data);
+        // console.log(data.redirect);
         if(data.redirect !== undefined){
-            // window.location = data.redirect;
+            window.location = data.redirect;
         } else if(data.error !== undefined){
             _error
                 .html(data.error)
@@ -119,7 +120,7 @@ $(document)
     
     .always(function ajaxAlwaysDone(data){
         // Always executes this
-        console.log('worked');
+        console.log('worked!');
     })
     // outputs the sent data to developer console (remove before deploy!)
     // console.log(data);

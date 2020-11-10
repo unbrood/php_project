@@ -46,9 +46,9 @@
         // Verify user can be added AND is added
         
         // Return the information back to JavaScript to redirect user
-        // $return['redirect'] = '/dashboard.php';        
+        $return['redirect'] = '/dashboard.php';        
 
-        echo json_encode($array, JSON_PRETTY_PRINT); exit;
+        echo json_encode($return, JSON_PRETTY_PRINT); exit;
     } else {
         // Stop script and redirect user
         exit('Invalid URL');

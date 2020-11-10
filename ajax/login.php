@@ -32,8 +32,8 @@
 
             if(password_verify($password, $hash)){
                 // User is signed in (redirect doesn't seem to be working)
-                // $return['redirect'] = 'dashboard.php';
-                header("Location: ../dashboard.php");
+                $return['redirect'] = '/dashboard.php';
+                // header("Location: http://localhost:8080/dashboard.php");
 
                 $_SESSION['user_id'] = $user_id;
             } else {
@@ -41,19 +41,24 @@
                 $return['error'] = "Invalid user email or password.";
             }
 
-
-            $return['error'] = "You already have an account.";
         } else {
             $return['error'] = "You do not have an account. <a href='../register.php'> Create an account now</a>";
         }
      
         // Return the information back to JavaScript to redirect user
         $return['redirect'] = 'dashboard.php';
+        // $return = [
+        //    'redirect' => 'dashboard.php'
+        // ]
 
-        // echo json_encode($array, JSON_PRETTY_PRINT); exit;
+        $str = json_encode($return, JSON_PRETTY_PRINT);
+        // {"redirect":"dashboard.php"}
+
+        echo $str; 
+        exit;
     } else {
         // Stop script and redirect user
         exit('Invalid URL');
     }
-
+    //https://stackoverflow.com/questions/14918462/get-response-from-php-file-using-ajax
 ?>
